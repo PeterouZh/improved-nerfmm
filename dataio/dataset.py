@@ -18,7 +18,7 @@ class NeRFMMDataset(Dataset):
         #------------
         # load all imgs into memory
         #------------
-        for path in tqdm(img_paths, '=> Loading data...'):
+        for path in tqdm(img_paths, f'=> Loading {data_dir}'):
             img = imageio.imread(path)[:, :, :3]
             img = skimage.img_as_float32(img)
             img = rescale(img, 1./downscale, anti_aliasing=True, multichannel=True)
